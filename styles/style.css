@@ -92,6 +92,72 @@ input[type="search"] {
   font-weight: 700;
 }
 
+/* 공통 메인 컨텐츠 */
+.appMain {
+  display: grid;
+  gap: var(--spacing-base);
+  padding: var(--spacing-base) var(--spacing-lg);
+}
+
+/* 공통 메인 컨텐츠 섹션 제목 */
+[class*="__title"] {
+  margin-bottom: var(--spacing-base);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+[class*="__koTitle"] {
+  font-size: var(--text-md);
+  font-weight: bold;
+}
+
+.sprite {
+  background: url(../images/sprite_main.png) no-repeat;
+  height: 3.75rem;
+  padding-left: 4.5rem;
+}
+
+.spriteBook {
+  background-position: 0 0;
+}
+
+.spriteNews {
+  background-position: 0 -230px;
+}
+
+.spriteBoard {
+  background-position: 0 -115px;
+}
+
+.spriteFavorite {
+  background-position: 0 -345px;
+}
+
+.spriteTwitter {
+  background-position: 0 -460px;
+}
+
+.accentBook {
+  color: var(--accent-book);
+}
+
+.accentNews {
+  color: var(--accent-news);
+}
+
+.accentBoard {
+  color: var(--accent-board);
+}
+
+.accentFavorite {
+  color: var(--accent-favorite);
+}
+
+.accentTwitter {
+  color: var(--accent-twitter);
+}
+
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -198,6 +264,12 @@ input[type="search"] {
   .menu__link {
     padding: var(--spacing-xs);
   }
+
+  /* 모바일 메인 컨텐츠 */
+  .appMain {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 
 /* 데스크탑 디바이스 (Desktop Device) */
@@ -253,6 +325,36 @@ input[type="search"] {
 
   .searchForm__group .formInput {
     width: 25rem;
+  }
+
+  /* 데스크탑 메인 컨텐츠 */
+  .appMain {
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "news news news news news news news news news news news news"
+      "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
+      "book book book book . board board board board board board board";
+      gap: var(--spacing-base);
+  }
+
+  .book {
+    grid-area: book;
+  }
+  .news {
+    grid-area: news;
+  }
+  .board {
+    grid-area: board;
+  }
+  .favorite {
+    grid-area: favorite;
+  }
+  .twitter {
+    grid-area: twitter;
   }
 }
 
